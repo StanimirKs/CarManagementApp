@@ -1,0 +1,21 @@
+# Ignore Python cache files
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore virtual environment directory
+.venv/
+venv/
+
+# Ignore IDE-related files (VSCode, etc.)
+.vscode/
+
+# Ignore database files (e.g., SQLite)
+*.db
+
+# Ignore migration files (if using Flask-Migrate)
+migrations/
+
+# Ignore other system-specific files
+.DS_Store
+Thumbs.db

@@ -1,0 +1,72 @@
+{
+     "openapi": "3.0.0",
+     "info": {
+       "title": "Car API",
+       "version": "1.0.0",
+       "description": "API for managing cars"
+     },
+     "paths": {
+       "/cars": {
+         "get": {
+           "summary": "Get all cars",
+           "operationId": "getCars",
+           "responses": {
+             "200": {
+               "description": "List of cars",
+               "content": {
+                 "application/json": {
+                   "schema": {
+                     "type": "array",
+                     "items": {
+                       "$ref": "#/components/schemas/Car"
+                     }
+                   }
+                 }
+               }
+             }
+           }
+         },
+         "post": {
+           "summary": "Add a new car",
+           "operationId": "addCar",
+           "requestBody": {
+             "required": true,
+             "content": {
+               "application/json": {
+                 "schema": {
+                   "$ref": "#/components/schemas/Car"
+                 }
+               }
+             }
+           },
+           "responses": {
+             "201": {
+               "description": "Car added"
+             }
+           }
+         }
+       }
+     },
+     "components": {
+       "schemas": {
+         "Car": {
+           "type": "object",
+           "properties": {
+             "make": {
+               "type": "string",
+               "example": "Mercedes"
+             },
+             "model": {
+               "type": "string",
+               "example": "CLK"
+             },
+             "year": {
+               "type": "integer",
+               "example": 2004
+             }
+           }
+         }
+       }
+     }
+   }
+   

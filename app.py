@@ -29,17 +29,7 @@ def getCars():
      return "A list of cars"
 
 
-@app.route('/testDb')
-def testDb():
-     try:
-          car = CarModel.query.first()
-          if car:
-               return f"Database connection is working! First car: {car}"
-          else:
-               return "No cars in database"
-     except Exception as e:
-          return f'Error : {e}'
-          
+
 
 
 

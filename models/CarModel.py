@@ -18,4 +18,4 @@ class Car(db.Model):
 
 
      def __repr__(self):
-          return f'<CarModel {self.name}>'
+          return f'<CarModel {self.make} {self.model}>'

@@ -1,6 +1,6 @@
-from repositories.maintenanceRepository import MaintenanceRepository
-from DTOs.MaintenanceDTO import *
-from DTOs.ReportDTO import MonthlyRequestsReportDTO
+from repositories.maintenance_repository import MaintenanceRepository
+from DTOs.maintenance_dto import *
+from DTOs.report_dto import MonthlyRequestsReportDTO
 import datetime
 
 class MaintenanceService:

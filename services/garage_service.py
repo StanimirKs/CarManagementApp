@@ -1,5 +1,5 @@
-from repositories.garageRepository import garageRepository
-from DTOs.GarageDTO import *
+from repositories.garage_repository import garageRepository
+from DTOs.garage_dto import *
 import datetime
 
 # 

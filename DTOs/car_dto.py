@@ -32,5 +32,5 @@ class ResponseCarDTO:
             'model': self.model,
             'productionYear': self.productionYear,
             'licensePlate': self.licensePlate,
-            'garages': self.garages
+            'garages': [garage.name for garage in self.garages]
         }

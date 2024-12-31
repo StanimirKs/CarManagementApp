@@ -4,6 +4,7 @@ from flask_migrate import Migrate
 from database.db_utils import db
 
 
+
 # syzdava tablicata chrez migracii
 class MaintenanceModel(db.Model):
      __tablename__ = 'maintenance'
@@ -16,7 +17,7 @@ class MaintenanceModel(db.Model):
 
 
      # relationships
-     car= db.relationship('car', back_populates='maintenance')
-     garage = db.relationship('garage', back_populates='maintenance')
+     car= db.relationship('Car', backref ='maintenance')
+     garage = db.relationship('GarageModel', backref='maintenance')
 
      

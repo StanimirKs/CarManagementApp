@@ -1,8 +1,8 @@
 from sqlalchemy.orm import Session
-from models.GarageModel import GarageModel
-from models.MaintenanceModel import MaintenanceModel
-from DTOs.GarageDTO import *
-from DTOs.ReportDTO import GarageDailyAvailabilityReportDTO
+from models.garage_model import GarageModel
+from models.maintenance_model import MaintenanceModel
+from DTOs.garage_dto import *
+from DTOs.report_dto import GarageDailyAvailabilityReportDTO
 import datetime
 from sqlalchemy import func
 

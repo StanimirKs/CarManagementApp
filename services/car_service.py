@@ -1,8 +1,8 @@
-from repositories.carRepository import carRepository
-from DTOs.CarDTO import *
+from repositories.car_repository import CarRepository
+from DTOs.car_dto import *
 
 class CarService:
-     def __init__ (self, repository: carRepository):
+     def __init__ (self, repository: CarRepository):
           self.repository = repository
           
 

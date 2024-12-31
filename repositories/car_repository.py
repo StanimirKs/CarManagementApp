@@ -1,13 +1,14 @@
 from sqlalchemy.orm import Session
-from models.CarModel import Car
-from DTOs.CarDTO import *
+from models.car_model import Car
+from DTOs.car_dto import *
 
-class carRepository:
-     def __init__(self,db: Session):
-          self.db = db
+class CarRepository:
+     def __init__(self, db: Session):
+          self.db = db.session
 
      def getAll(self):
           cars = self.db.query(Car).all()
+          print(f"Found cars: {cars}")
      # izpolzva se list comprehension 
           responseDTOList = [
                ResponseCarDTO(

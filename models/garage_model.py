@@ -13,6 +13,6 @@ class GarageModel(db.Model):
      capacity = db.Column(db.Integer(), nullable=False)
 
      # handles the relationship
-     maintenance = db.relationship('maintenance', back_populates='garage')
+     maintenanceRelationship = db.relationship('MaintenanceModel', backref='garage_relation')
 
 

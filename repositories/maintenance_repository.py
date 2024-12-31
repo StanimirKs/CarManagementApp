@@ -1,6 +1,6 @@
-from models.MaintenanceModel import Maintenance
-from DTOs.MaintenanceDTO import CreateMaintenanceDTO
-from DTOs.ReportDTO import MonthlyRequestsReportDTO
+from models.maintenance_model import Maintenance
+from DTOs.maintenance_dto import CreateMaintenanceDTO
+from DTOs.report_dto import MonthlyRequestsReportDTO
 from sqlalchemy.orm import Session
 
 

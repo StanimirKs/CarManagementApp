@@ -24,6 +24,7 @@ class ResponseCarDTO:
         self.licensePlate = licensePlate
         self.garages = garages
 
+ # metoda prevryshta dannite v dictionary
     def to_dict(self):
         return {
             'id': self.id,

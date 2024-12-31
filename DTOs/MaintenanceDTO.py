@@ -24,6 +24,7 @@ class ResponseMaintenanceDTO:
         self.garageId = garageId
         self.garage_name = garage_name
 
+ # izpolzva se to_dict za po lesno chetene na dannite
     def to_dict(self):
         return {
             'id': self.id,

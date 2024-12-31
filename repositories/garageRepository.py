@@ -1,6 +1,10 @@
 from sqlalchemy.orm import Session
-from models.GarageModel import Garage
+from models.GarageModel import GarageModel
+from models.MaintenanceModel import MaintenanceModel
 from DTOs.GarageDTO import *
+from DTOs.ReportDTO import GarageDailyAvailabilityReportDTO
+import datetime
+from sqlalchemy import func
 
 
 class garageRepository:
@@ -9,7 +13,7 @@ class garageRepository:
           self.db = db
 
      def getAll(self):
-          garages = self.db.query(Garage).all()
+          garages = self.db.query(GarageModel).all()
           responseDTOList = [
                ResponseGarageDTO(
                     id = garage.id,
@@ -25,7 +29,7 @@ class garageRepository:
           
      
      def getById(self, garageId: int):
-          garage =  self.db.query(Garage).filter(Garage.id == garageId).first()
+          garage =  self.db.query(GarageModel).filter(GarageModel.id == garageId).first()
           if not garage :
                return None
           
@@ -39,7 +43,7 @@ class garageRepository:
           return response.to_dict()
      
      def create(self,createGarageDTO: CreateGarageDTO):
-          garage = Garage(
+          garage = GarageModel(
                garageId = createGarageDTO.garageId,
                name = createGarageDTO.name,
                location = createGarageDTO.location,
@@ -73,3 +77,33 @@ class garageRepository:
                self.db.commit()
 
           return garage
+
+
+          # vzima danni ot maintenance repoto, puska gi prez DTOto i gi izkarva
+     def dailyAvailabilityReport(self, garageId: int, startDate: datetime, endDate: datetime ):
+          garage = self.db.query(GarageModel).filter(GarageModel.id == garageId).first()
+
+          if not garage:
+               return None
+          
+          query = (
+               self.db.query(
+                    MaintenanceModel.scheduledDate.label("date"),
+                    func.count(MaintenanceModel.id).label("requests")
+                    
+               )
+               .filter(MaintenanceModel.garageId == garageId)
+               .filter(MaintenanceModel.scheduledDate >= startDate)
+               .filter(MaintenanceModel.scheduledDate <= endDate).group_by(MaintenanceModel.scheduledDate)
+          )
+          results = query.all()
+
+          report = []
+
+          for result in results:
+               date = result.date
+               requests = result.results
+               availableCapacity = garage.capacity - requests
+               report.append(GarageDailyAvailabilityReportDTO(date, requests, availableCapacity))
+
+          return report  

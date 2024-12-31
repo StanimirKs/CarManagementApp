@@ -3,7 +3,7 @@ from sqlalchemy.orm import relationship
 from flask_sqlalchemy import SQLAlchemy
 from database.db_utils import db
 
-
+# syzdava tablicata chrez migracii
 class GarageModel(db.Model):
      __tablename__ = 'garage'
      id = db.Column(db.Integer, primary_key=True)

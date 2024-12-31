@@ -4,7 +4,7 @@ from database.db_utils import db
 from flask_sqlalchemy import SQLAlchemy
 
 
-
+# syzdava tablicata chrez migracii
 class Car(db.Model):
      __tablename__ = "car"
      id = db.Column(db.Integer, primary_key=True)

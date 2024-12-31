@@ -8,7 +8,7 @@ class carRepository:
 
      def getAll(self):
           cars = self.db.query(Car).all()
-
+     # izpolzva se list comprehension 
           responseDTOList = [
                ResponseCarDTO(
                     id=car.id,

@@ -43,7 +43,7 @@ class MaintenanceRepository:
 
           return query.all()  
      
-
+     # create metoda e svyrzan s DTOto
      def create(self, createMaintenanceDTO: CreateMaintenanceDTO):
           maintenance = Maintenance(
                carId = createMaintenanceDTO.carId,

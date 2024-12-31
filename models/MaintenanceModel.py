@@ -4,7 +4,7 @@ from flask_migrate import Migrate
 from database.db_utils import db
 
 
-
+# syzdava tablicata chrez migracii
 class MaintenanceModel(db.Model):
      __tablename__ = 'maintenance'
      id = db.Column(Integer,primary_key=True)

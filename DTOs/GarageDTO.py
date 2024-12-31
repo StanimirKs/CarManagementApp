@@ -21,6 +21,7 @@ class ResponseGarageDTO:
         self.city = city
         self.capacity = capacity
 
+ # izpolzva se to_dict za po lesno chetene na dannite
     def to_dict(self):
         return {
             'id': self.id,
